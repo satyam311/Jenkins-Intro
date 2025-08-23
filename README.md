@@ -75,9 +75,15 @@ Use this to fetch the password : `sudo cat /var/lib/jenkins/secrets/initialAdmin
 ### > How to create First Jobs on Jenkins ? 
 
 - Click on Create a Job
-- Write the name of the priject and click on freestyle project.
-- 
+- Write the name of the project and click on freestyle project.
 
+<img width="1000" height="685" alt="create first project" src="https://github.com/user-attachments/assets/ab847bf2-911b-4eaa-bc04-33fd4f52dbf8" />
+
+
+<img width="850" height="404" alt="Adding Build Step" src="https://github.com/user-attachments/assets/059d6e5c-dbff-419d-9742-aa0cafc74294" />
+
+
+<img width="971" height="621" alt="Execute Shell Commands" src="https://github.com/user-attachments/assets/e8324bd4-4af0-445d-9cf0-11f3261b35d2" />
 
 
 
