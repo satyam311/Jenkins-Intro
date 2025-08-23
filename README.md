@@ -1,2 +1,76 @@
 # Jenkins-Intro
 Introduction to Jenkins
+
+### > Create Server on Cloud 
+Create an EC2 instance id 
+### > How to install jenkins ? 
+
+Link to install Jenkins : https://www.jenkins.io/doc/book/installing/linux/ 
+
+Jenkins is build in Java and due to this we need java jdk on the server.
+
+```sudo apt update
+sudo apt install fontconfig openjdk-21-jre
+java -version
+openjdk version "21.0.3" 2024-04-16
+OpenJDK Runtime Environment (build 21.0.3+11-Debian-2)
+OpenJDK 64-Bit Server VM (build 21.0.3+11-Debian-2, mixed mode, sharing)
+```
+
+```sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian/jenkins.io-2023.key
+echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins
+```
+
+Checking the status of jenkins
+`systectl status jenkins`
+```
+● jenkins.service - Jenkins Continuous Integration Server
+     Loaded: loaded (/usr/lib/systemd/system/jenkins.service; enabled; preset: >
+     Active: active (running) since Sat 2025-08-23 17:42:46 UTC; 26s ago
+   Main PID: 4460 (java)
+      Tasks: 44 (limit: 1121)
+     Memory: 291.5M (peak: 301.4M)
+        CPU: 16.748s
+     CGroup: /system.slice/jenkins.service
+             └─4460 /usr/bin/java -Djava.awt.headless=true -jar /usr/share/java>
+
+Aug 23 17:42:39 ip-172-31-88-79 jenkins[4460]: a67be0479c4f4c0480476edbf0732437
+Aug 23 17:42:39 ip-172-31-88-79 jenkins[4460]: This may also be found at: /var/>
+Aug 23 17:42:39 ip-172-31-88-79 jenkins[4460]: ********************************>
+Aug 23 17:42:39 ip-172-31-88-79 jenkins[4460]: ********************************>
+Aug 23 17:42:39 ip-172-31-88-79 jenkins[4460]: ********************************>
+Aug 23 17:42:46 ip-172-31-88-79 jenkins[4460]: 2025-08-23 17:42:46.102+0000 [id>
+Aug 23 17:42:46 ip-172-31-88-79 jenkins[4460]: 2025-08-23 17:42:46.139+0000 [id>
+Aug 23 17:42:46 ip-172-31-88-79 systemd[1]: Started jenkins.service - Jenkins C>
+Aug 23 17:42:46 ip-172-31-88-79 jenkins[4460]: 2025-08-23 17:42:46.421+0000 [id>
+Aug 23 17:42:46 ip-172-31-88-79 jenkins[4460]: 2025-08-23 17:42:46.426+0000 [id>
+```
+
+` Sudo systectl enable jenkins` => This is to enable jenkins service to start automatically at boot time.
+
+
+By default, Jenkins runs on port 8080. 
+This can be changed in /etc/default/jenkins or /etc/sysconfig/jenkins on Linux.
+```
+# port for HTTP connector (default 8080; disable with -1)
+HTTP_PORT=8080
+```
+Try accesing the jenkins using 44.203.41.217:8080
+
+but wait ....... !!!! but this is blocked
+
+go to the ec2 server security group and edit the inbound rule (Controls incoming traffic to your system or resource from external sources.) and add port 8080.
+
+again try to acesss 44.203.41.217:8080 and boom ... !!! 
+
+< image > 
+
+
+
+
+
