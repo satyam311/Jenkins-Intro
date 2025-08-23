@@ -70,6 +70,7 @@ again try to acesss 44.203.41.217:8080 and boom ... !!!
 
 < image > 
 
+Use this to fetch the password : `sudo cat /var/lib/jenkins/secrets/initialAdminPassword` and set the username and password and you can move forward and start creating your job.
 
 
 
