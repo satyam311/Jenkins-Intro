@@ -72,6 +72,13 @@ again try to acesss 44.203.41.217:8080 and boom ... !!!
 
 Use this to fetch the password : `sudo cat /var/lib/jenkins/secrets/initialAdminPassword` and set the username and password and you can move forward and start creating your job.
 
+### > How to create First Jobs on Jenkins ? 
+
+- Click on Create a Job
+- Write the name of the priject and click on freestyle project.
+- 
+
+
 
 
 
