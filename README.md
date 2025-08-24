@@ -68,22 +68,36 @@ go to the ec2 server security group and edit the inbound rule (Controls incoming
 
 again try to acesss 44.203.41.217:8080 and boom ... !!! 
 
-< image > 
+ <img width="800" height="400" alt="Screenshot 2025-08-23 at 11 26 23 PM" src="https://github.com/user-attachments/assets/7c7b1c93-2287-4ac7-9272-acc1cf797cab" />
+
 
 Use this to fetch the password : `sudo cat /var/lib/jenkins/secrets/initialAdminPassword` and set the username and password and you can move forward and start creating your job.
+
+---
 
 ### > How to create First Jobs on Jenkins ? 
 
 - Click on Create a Job
 - Write the name of the project and click on freestyle project.
 
-<img width="1000" height="685" alt="create first project" src="https://github.com/user-attachments/assets/ab847bf2-911b-4eaa-bc04-33fd4f52dbf8" />
+<img width="800" height="400" alt="create first project" src="https://github.com/user-attachments/assets/ab847bf2-911b-4eaa-bc04-33fd4f52dbf8" />
 
 
-<img width="850" height="404" alt="Adding Build Step" src="https://github.com/user-attachments/assets/059d6e5c-dbff-419d-9742-aa0cafc74294" />
+<img width="800" height="400" alt="Adding Build Step" src="https://github.com/user-attachments/assets/059d6e5c-dbff-419d-9742-aa0cafc74294" />
 
 
-<img width="971" height="621" alt="Execute Shell Commands" src="https://github.com/user-attachments/assets/e8324bd4-4af0-445d-9cf0-11f3261b35d2" />
+<img width="800" height="400" alt="Execute Shell Commands" src="https://github.com/user-attachments/assets/e8324bd4-4af0-445d-9cf0-11f3261b35d2" />
+
+---
+
+### > How to Create simple pipeline ? 
+
+
+<img width="800" height="400" alt="Screenshot 2025-08-24 at 12 22 59 AM" src="https://github.com/user-attachments/assets/5cf09040-76ac-46f3-b7ce-bf19c1990e5c" />
+
+---
+
+
 
 
 
