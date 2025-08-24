@@ -102,7 +102,7 @@ Use this to fetch the password : `sudo cat /var/lib/jenkins/secrets/initialAdmin
 
 ### How jenkins work with an agent ? 
 
-Create second Ec2 Server as an jenkins-agent, Since this is just a agent which perform task given by master node there is no need for the jenkins to be installed but we need to install Java on it. 
+Create second Ec2 Server as a jenkins-agent, Since this is just an agent which perform task given by master node there is no need for the jenkins to be installed but we need to install Java on it. 
 
 ```
 sudo apt update
@@ -113,8 +113,8 @@ java -version
 **How Master connect with an agent ?**
 
 Prerequisite : 
-Agent must have java installed.
-SSH service running on the agent node.
+- Agent must have java installed.
+- SSH service running on the agent node.
 
 **Generate SSH Key on Jenkins Master**
 
@@ -158,8 +158,9 @@ Manage Jenkins → Credentials → System → Global credentials (unrestricted).
 - Click Save and Jenkins will try to connect via SSH and launch the agent.
 
 
+<img width="400" height="558" alt="Screenshot 2025-08-24 at 10 27 18 AM" src="https://github.com/user-attachments/assets/2e3cff32-f54d-4b9f-86ca-db39c170bd58" />
 
-
+---
 
 
 
