@@ -146,16 +146,15 @@ Manage Jenkins → Credentials → System → Global credentials (unrestricted).
 
 **Add the Agent Node in Jenkins**
 
-- Manage Jenkins → Nodes → New Node.
-- Enter node name → Select Permanent Agent → OK.
+- Manage Jenkins → Nodes → New Node
+- Enter node name → Select Permanent Agent → OK
 - Configure:
   - Remote root directory: /home/jenkins (or any path on the agent)
   - Launch method: Launch agent via SSH
   - Host: IP or hostname of agent
   - Credentials: Select the SSH key you added
   - Host Key Verification Strategy: Choose Non verifying or Known hosts file (for security)
-
-- Click Save and Jenkins will try to connect via SSH and launch the agent.
+ - Click Save and Jenkins will try to connect via SSH and launch the agent.
 
 
 <img width="400" height="558" alt="Screenshot 2025-08-24 at 10 27 18 AM" src="https://github.com/user-attachments/assets/2e3cff32-f54d-4b9f-86ca-db39c170bd58" />
