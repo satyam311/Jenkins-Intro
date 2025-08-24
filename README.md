@@ -9,7 +9,8 @@ Link to install Jenkins : https://www.jenkins.io/doc/book/installing/linux/
 
 Jenkins is build in Java and due to this we need java jdk on the server.
 
-```sudo apt update
+```bash
+sudo apt update
 sudo apt install fontconfig openjdk-21-jre
 java -version
 openjdk version "21.0.3" 2024-04-16
@@ -17,10 +18,11 @@ OpenJDK Runtime Environment (build 21.0.3+11-Debian-2)
 OpenJDK 64-Bit Server VM (build 21.0.3+11-Debian-2, mixed mode, sharing)
 ```
 
-```sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
-  https://pkg.jenkins.io/debian/jenkins.io-2023.key
+```bash
+sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
 echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
-  https://pkg.jenkins.io/debian binary/ | sudo tee \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
 sudo apt-get update
 sudo apt-get install jenkins
@@ -51,7 +53,7 @@ Aug 23 17:42:46 ip-172-31-88-79 jenkins[4460]: 2025-08-23 17:42:46.421+0000 [id>
 Aug 23 17:42:46 ip-172-31-88-79 jenkins[4460]: 2025-08-23 17:42:46.426+0000 [id>
 ```
 
-` Sudo systectl enable jenkins` => This is to enable jenkins service to start automatically at boot time.
+` sudo systectl enable jenkins` => This is to enable jenkins service to start automatically at boot time.
 
 
 By default, Jenkins runs on port 8080. 
@@ -107,6 +109,61 @@ sudo apt update
 sudo apt install fontconfig openjdk-21-jre
 java -version
 ```
+
+**How Master connect with an agent ?**
+
+Prerequisite : 
+Agent must have java installed.
+SSH service running on the agent node.
+
+**Generate SSH Key on Jenkins Master**
+
+```
+cd ~/.ssh
+ssh-keygen
+ls
+Result : authorized_keys  id_ed25519  id_ed25519.pub 
+cat id_ed25519.pub 
+```
+
+**Add Public Key to Agent Node**
+```
+cd ~/.ssh
+vim authorized_keys
+and paste the public key inside it.
+```
+
+**Configure SSH Credentials in Jenkins**
+
+Manage Jenkins → Credentials → System → Global credentials (unrestricted).
+
+**Click Add Credentials:**
+
+- Kind: SSH Username with private key
+- Username: (user on agent node)
+- Private Key: Enter the private key (~/.ssh/id_rsa from master)
+- ID: e.g., agent-ssh-key
+
+**Add the Agent Node in Jenkins**
+
+- Manage Jenkins → Nodes → New Node.
+- Enter node name → Select Permanent Agent → OK.
+- Configure:
+  - Remote root directory: /home/jenkins (or any path on the agent)
+  - Launch method: Launch agent via SSH
+  - Host: IP or hostname of agent
+  - Credentials: Select the SSH key you added
+  - Host Key Verification Strategy: Choose Non verifying or Known hosts file (for security)
+
+- Click Save and Jenkins will try to connect via SSH and launch the agent.
+
+
+
+
+
+
+
+
 
 
 
