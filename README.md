@@ -98,7 +98,15 @@ Use this to fetch the password : `sudo cat /var/lib/jenkins/secrets/initialAdmin
 ---
 
 
+### How jenkins work with an agent ? 
 
+Create second Ec2 Server as an jenkins-agent, Since this is just a agent which perform task given by master node there is no need for the jenkins to be installed but we need to install Java on it. 
+
+```
+sudo apt update
+sudo apt install fontconfig openjdk-21-jre
+java -version
+```
 
 
 
