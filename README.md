@@ -169,6 +169,8 @@ Prerequisite :
 - Agent must have java installed.
 - SSH service running on the agent node.
 
+<img width="809" height="499" alt="Screenshot 2025-12-26 at 12 24 36 PM" src="https://github.com/user-attachments/assets/2ef3f20c-f527-47fc-bf75-f9915af9fe83" />
+
 **Generate SSH Key on Jenkins Master**
 
 ```
