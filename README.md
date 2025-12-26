@@ -92,15 +92,68 @@ Use this to fetch the password : `sudo cat /var/lib/jenkins/secrets/initialAdmin
 
 ---
 
-### > How to Create simple pipeline ? 
+### How to Create simple pipeline ? 
 
 
 <img width="800" height="400" alt="Screenshot 2025-08-24 at 12 22 59 AM" src="https://github.com/user-attachments/assets/5cf09040-76ac-46f3-b7ce-bf19c1990e5c" />
 
 ---
 
+# What is Jenkins Master–Agent Architecture?
 
-### How jenkins work with an agent ? 
+Jenkins follows a master–agent (earlier called master–slave) architecture to distribute workload and scale builds.
+
+### Jenkins Master (Controller)
+
+The master is the brain of Jenkins.
+
+It is responsible for:
+
+- Hosting the Jenkins UI (Dashboard)
+- Managing jobs, pipelines, credentials, plugins
+- Scheduling jobs to available agents
+- Monitoring agent health
+- Storing build configurations and logs (by default)
+
+The master does NOT ideally execute heavy builds (to avoid overload).
+
+### Jenkins Agent (Slave)
+
+Agents are worker machines that actually execute the build jobs.
+
+They can be:
+- Physical servers
+- Virtual machines
+- Docker containers
+- Kubernetes pods
+- Cloud instances (AWS, GCP, Azure)
+
+**Agents:**
+
+- Receive instructions from the master
+- Execute build steps (compile, test, deploy)
+- Send results/logs back to the master
+
+
+### High-Level Workflow
+
+```
+Developer → Git Push
+        ↓
+   Jenkins Master
+        ↓
+  Assigns job to Agent
+        ↓
+   Agent executes job
+        ↓
+  Sends result back to Master
+```
+
+<img width="809" height="499" alt="Screenshot 2025-12-26 at 12 05 46 PM" src="https://github.com/user-attachments/assets/7ab2f88d-b13b-44e0-9040-0af5a7c0f7e8" />
+
+
+
+### How jenkins work with an agent and how to set up these agents ?
 
 Create second Ec2 Server as a jenkins-agent, Since this is just an agent which perform task given by master node there is no need for the jenkins to be installed but we need to install Java on it. 
 
