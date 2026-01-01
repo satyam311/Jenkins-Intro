@@ -1,4 +1,4 @@
-# Declarative pipeline  
+# Declarative pipeline using ec2 as worker and master nodes 
 
 
 Building a declaritive where I will be deploying a django based application present on github and build docker image and start a container on ec2 instance.
